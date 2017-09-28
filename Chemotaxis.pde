@@ -10,7 +10,9 @@ Bacteria [] colony;
  }   
  void draw()   
  {    
-   background(255);
+   background(240);
+   fill(255);
+   ellipse(250,250,500,500);
    for (int i = 0; i < colony.length; i++)
    {
      colony[i].move();
@@ -20,6 +22,7 @@ Bacteria [] colony;
  class Bacteria    
  {     
    int x, y;
+   int size = 10;
    Bacteria()
    {
      x = (int)(Math.random()*500);
@@ -42,6 +45,10 @@ Bacteria [] colony;
        x = x + (int)(Math.random()*3);
        y = y - (int)(Math.random()*3);
      }
+     else if (mouseX == x && mouseY == y)
+     {
+       size = size + 1;
+     }
      else
      {
        x = x - (int)(Math.random()*4);
@@ -52,6 +59,6 @@ Bacteria [] colony;
    {
      fill((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
      noStroke();
-     ellipse(x,y,10,10);
+     ellipse(x,y,size,size);
    }
  }
